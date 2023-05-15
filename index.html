@@ -11,20 +11,21 @@
         THREEx.ArToolkitContext.baseURL = 'https://raw.githack.com/jeromeetienne/ar.js/master/three.js/'
     </script>
 </head>
-<script>
-    var intervalId = window.setInterval(function(){
-        document.getElementById("location") = position.coords.latitude;
-    document.getElementById("location") = position.coords.longitude;
-}, 1000);
-
-
-</script>
 <body style='margin: 0; overflow: hidden;'>
+    <script>
+        var intervalId = window.setInterval(function(){
+            document.getElementById("location") = position.coords.latitude;
+        document.getElementById("location") = position.coords.longitude;
+    }, 1000);
+    
+    
+    </script>
 
-</body>
 <h1>fadi</h1>
 <p id="locationlat"></p>
 <p id="locationlong"></p>
+</body>
+
 
 <script>
 /*    window.onload = () => {                       navigator.geolocation.getCurrentPosition((position) => {
