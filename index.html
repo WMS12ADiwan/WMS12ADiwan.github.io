@@ -13,18 +13,19 @@
 </head>
 <body style='margin: 0; overflow: hidden;'>
     <script>
-        window.setInterval(function(){
-            document.getElementById("locationlat") = position.coords.latitude;
-        document.getElementById("locationlong") = position.coords.longitude;
-    }, 1000);
-    
-    
+      window.setInterval(function() {
+        navigator.geolocation.getCurrentPosition(function(position) {
+          document.getElementById("locationlat").textContent = position.coords.latitude;
+          document.getElementById("locationlong").textContent = position.coords.longitude;
+        });
+      }, 1000);
     </script>
-
-<h1>fadi</h1>
-<p id="locationlat"></p>
-<p id="locationlong"></p>
-</body>
+  
+    <h1>fadi</h1>
+    <p id="locationlat"></p>
+    <p id="locationlong"></p>
+  </body>
+  
 
 
 <script>
