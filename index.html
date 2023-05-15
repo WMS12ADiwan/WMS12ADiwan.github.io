@@ -10,6 +10,13 @@
   </head>
 
   <body style="margin: 0; overflow: hidden;">
+    <script>
+      window.onload = () => {                       navigator.geolocation.getCurrentPosition((position) => {
+        document.querySelector('a-text').setAttribute('gps-entity-place', `latitude: ${position.coords.latitude}; longitude: ${position.coords.longitude};`)
+      });
+     }
+  
+   </script>
     <a-scene
       vr-mode-ui="enabled: false"
       embedded
@@ -19,7 +26,6 @@
         value="This content will always face you."
         look-at="[gps-camera]"
         scale="50 50 50"
-        gps-entity-place="latitude: <add-your-latitude>; longitude: <add-your-longitude>;"
       ></a-text>
       <a-camera gps-camera rotation-reader> </a-camera>
     </a-scene>
@@ -28,10 +34,3 @@
   
 
 
-<script>
-/*    window.onload = () => {                       navigator.geolocation.getCurrentPosition((position) => {
-      document.querySelector('a-text').setAttribute('gps-entity-place', `latitude: ${position.coords.latitude}; longitude: ${position.coords.longitude};`)
-    });
-   }
-*/ 
- </script>
