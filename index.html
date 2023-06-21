@@ -1,139 +1,16 @@
-<!DOCTYPE html>
 <html>
-
-<head>
-    <script src="https://aframe.io/releases/1.4.2/aframe.min.js"></script>
-    <!-- we import arjs version without NFT but with marker + location based support -->
-    <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script>
-    <script src="color-toggle.js"></script>
-    <meta name="description" content="Basic Scene - A-Frame">
-</head>
-
-<body>
-    <a-scene vr-mode-ui="enabled: false;" renderer="logarithmicDepthBuffer: true;" embedded arjs="trackingMethod: best; sourceType: webcam; debugUIEnabled: false; detectionMode: mono_and_matrix; matrixCodeType: 3x3;">
-        <a-assets>
-            <img id="boxopen" src="close.png">
-            <img id="boxclose" src="open.png" alt="">
-        </a-assets>
-        <!--Reihe 9-->
-        <a-box position="0 -7 -10" scale="0.7 0.7 0.7" src="#boxopen" onclick></a-box>
-        <a-box position="1 -7 -10" scale="0.7 0.7 0.7" src="#boxopen" onclick></a-box>
-        <a-box position="-1 -7 -10" scale="0.7 0.7 0.7" src="#boxopen" onclick></a-box>
-        <a-box position="2 -7 -10" scale="0.7 0.7 0.7" src="#boxopen" onclick></a-box>
-        <!--Reihe 8-->
-        <a-box position="0 -6 -10" scale="0.7 0.7 0.7" src="#boxopen" onclick></a-box>
-        <a-box position="1 -6 -10" scale="0.7 0.7 0.7" src="#boxopen" onclick></a-box>
-        <a-box position="-1 -6 -10" scale="0.7 0.7 0.7" src="#boxopen" onclick></a-box>
-        <a-box position="2 -6 -10" scale="0.7 0.7 0.7" src="#boxopen" onclick></a-box>
-        <!--Reihe 7-->
-        <a-box position="0 -5 -10" scale="0.7 0.7 0.7" src="#boxopen" onclick></a-box>
-        <a-box position="1 -5 -10" scale="0.7 0.7 0.7" src="#boxopen" onclick></a-box>
-        <a-box position="-1 -5 -10" scale="0.7 0.7 0.7" src="#boxopen" onclick></a-box>
-        <a-box position="2 -5 -10" scale="0.7 0.7 0.7" src="#boxopen" onclick></a-box>
-        <!--Reihe 6-->
-        <a-box position="0 -4 -10" scale="0.7 0.7 0.7" src="#boxopen" onclick></a-box>
-        <a-box position="1 -4 -10" scale="0.7 0.7 0.7" src="#boxopen" onclick></a-box>
-        <a-box position="-1 -4 -10" scale="0.7 0.7 0.7" src="#boxopen" onclick></a-box>
-        <a-box position="2 -4 -10" scale="0.7 0.7 0.7" src="#boxopen" onclick></a-box>
-        <!--Reihe 5-->
-        <a-box position="0 -3 -10" scale="0.7 0.7 0.7" src="#boxopen" onclick></a-box>
-        <a-box position="1 -3 -10" scale="0.7 0.7 0.7" src="#boxopen" onclick></a-box>
-        <a-box position="-1 -3 -10" scale="0.7 0.7 0.7" src="#boxopen" onclick></a-box>
-        <a-box position="2 -3 -10" scale="0.7 0.7 0.7" src="#boxopen" onclick></a-box>
-        <!--Reihe 4-->
-        <a-box position="0 -2 -10" scale="0.7 0.7 0.7" src="#boxopen" onclick></a-box>
-        <a-box position="1 -2 -10" scale="0.7 0.7 0.7" src="#boxopen" onclick></a-box>
-        <a-box position="-1 -2 -10" scale="0.7 0.7 0.7" src="#boxopen" onclick></a-box>
-        <a-box position="2 -2 -10" scale="0.7 0.7 0.7" src="#boxopen" onclick></a-box>
-        <!--Reihe 3-->
-        <a-box position="0 -1 -10" scale="0.7 0.7 0.7" src="#boxopen" onclick></a-box>
-        <a-box position="1 -1 -10" scale="0.7 0.7 0.7" src="#boxopen" onclick></a-box>
-        <a-box position="-1 -1 -10" scale="0.7 0.7 0.7" src="#boxopen" onclick></a-box>
-        <a-box position="2 -1 -10" scale="0.7 0.7 0.7" src="#boxopen" onclick></a-box>
-        <!--Reihe 2-->
-        <a-box position="0 0 -10" scale="0.7 0.7 0.7" src="#boxopen" onclick></a-box>
-        <a-box position="1 0 -10" scale="0.7 0.7 0.7" src="#boxopen" onclick></a-box>
-        <a-box position="-1 0 -10" scale="0.7 0.7 0.7" src="#boxopen" onclick></a-box>
-        <a-box position="2 0 -10" scale="0.7 0.7 0.7" src="#boxopen" onclick></a-box>
-        <!--Reihe 1-->
-        <a-box position="0 1 -10" scale="0.7 0.7 0.7" src="#boxopen" onclick></a-box>
-        <a-box position="1 1 -10" scale="0.7 0.7 0.7" src="#boxopen" onclick></a-box>
-        <a-box position="-1 1 -10" scale="0.7 0.7 0.7" src="#boxopen" onclick></a-box>
-        <a-box position="2 1 -10" scale="0.7 0.7 0.7" src="#boxopen" onclick></a-box>
-        <a-text value="Virtual MarktBox" color="#BBB" position="-0.628 1.75 -10" scale="1.5 1.5 1.5"></a-text>
-
-        <!-- 
-        <a-marker markerhandler type='barcode' value='6'>
-        </a-marker>
-    -->
-        <!-- 
-        <script>
-            window.addEventListener('load', () => {
-                const camera = document.querySelector('[camera]');
-                const marker = document.querySelector('a-marker');
-                let check;
-
-                marker.addEventListener('markerFound', () => {
-                    let cameraPosition = camera.object3D.position;
-                    let markerPosition = marker.object3D.position;
-                    let distance = cameraPosition.distanceTo(markerPosition)
-
-                    check = setInterval(() => {
-                        cameraPosition = camera.object3D.position;
-                        markerPosition = marker.object3D.position;
-                        distance = cameraPosition.distanceTo(markerPosition)
-
-                        // do what you want with the distance:
-                        //alert(distance);
-                    }, 100);
-                });
-
-                marker.addEventListener('markerLost', () => {
-                    clearInterval(check);
-                })
-            })
-        </script>
-
-    -->
-
-
-
-
-
-
-
-        <a-camera>
-            <a-cursor></a-cursor>
-        </a-camera>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <script src="https://cdn.jsdelivr.net/gh/hiukim/mind-ar-js@1.1.4/dist/mindar-face.prod.js"></script>
+    <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/hiukim/mind-ar-js@1.1.4/dist/mindar-face-aframe.prod.js"></script>
+  </head>
+  <body>
+    <a-scene mindar-face embedded vr-mode-ui="enabled: false" device-orientation-permission-ui="enabled: false">
+      <a-camera active="false" position="0 0 0"></a-camera>
+      <a-entity mindar-face-target="anchorIndex: 1">
+        <a-sphere color="green" radius="0.1"></a-sphere>
+      </a-entity>
     </a-scene>
-    <script>
-        AFRAME.registerComponent('onclick', {
-
-            init: function() {
-                var data = this.data;
-                var el = this.el; // <a-box>
-
-                el.addEventListener('mouseenter', function() {
-                    el.setAttribute('scale', "0.9 0.9 0.9");
-                });
-
-                el.addEventListener('mouseleave', function() {
-                    el.setAttribute('scale', "0.7 0.7 0.7");
-                });
-
-                el.addEventListener('click', function() {
-
-                    if (el.getAttribute('src') === '#boxopen') {
-                        alert("click");
-                        el.setAttribute('src', "#boxclose");
-                    } else {
-                        alert("click2");
-                        el.setAttribute('src', "#boxopen");
-                    }
-                });
-            }
-        });
-    </script>
-</body>
-
+  </body>
 </html>
