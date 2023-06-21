@@ -7,9 +7,11 @@
         <a-scene embedded arjs>
         <a-marker preset="hiro">
             <!-- we use cors proxy to avoid cross-origin problems ATTENTION! you need to set up your server -->
-            <a-text value="Welcome to the Innovation Center" color="#FE2EC8" position="0 0 0" scale="1.5 1.5 1.5"></a-text>
-                    <a-box position="0 0 0"></a-box>
 
+<a-entity
+  geometry="primitive: plane; width: 4; height: auto"
+  material="color: blue"
+  text="value: This text will be 4 units wide."></a-entity>
 <!--
             <a-entity
             position="0 0 0"
