@@ -4,7 +4,7 @@
     <!-- we import arjs version without NFT but with marker + location based support -->
     <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script>
     <body style="margin : 0px; overflow: hidden;">
-        <a-scene embedded arjs>
+        <a-scene evr-mode-ui="enabled: false" embedded arjs='debugUIEnabled:false; sourceType:webcam; detectionMode: mono_and_matrix; matrixCodeType: 3x3; cameraParametersUrl: camera_para.dat; maxDetectionRate: 10;' renderer="logarithmicDepthBuffer: true; precision: high;">
         <a-marker preset="hiro">
             <!-- we use cors proxy to avoid cross-origin problems ATTENTION! you need to set up your server -->
 
