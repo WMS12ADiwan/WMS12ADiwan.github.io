@@ -1,0 +1,11 @@
+Model Information:
+* title:	Dance
+* source:	https://sketchfab.com/3d-models/dance-6b9ca886dd834a859657aaf2a8dd08c3
+* author:	rkonstru (https://sketchfab.com/rkonstru)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Dance" (https://sketchfab.com/3d-models/dance-6b9ca886dd834a859657aaf2a8dd08c3) by rkonstru (https://sketchfab.com/rkonstru) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
