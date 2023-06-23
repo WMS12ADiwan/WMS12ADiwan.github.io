@@ -3,14 +3,14 @@
     <script src="https://aframe.io/releases/1.3.0/aframe.min.js"></script>
     <!-- we import arjs version without NFT but with marker + location based support -->
     <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script>
-    <script src="//cdn.rawgit.com/donmccurdy/aframe-extras/v5.0.0/dist/aframe-extras.min.js"></script>  
-    <script src="https://rawgit.com/donmccurdy/aframe-extras/master/dist/aframe-extras.loaders.min.js"></script>
     <body style="margin : 0px; overflow: hidden;">
         <a-scene embedded arjs>
         <a-marker preset="hiro">
             <!-- we use cors proxy to avoid cross-origin problems ATTENTION! you need to set up your server -->
-
-            <a-gltf-model src="scene.gltf" position="0 2 0.25" rotation="90 180 0" scale="0.01 0.01 0.01" animation-mixer="clip: Take 001; loop:once"> </a-gltf-model>
+            <a-entity
+            position="0 0 0"
+            scale="0.05 0.05 0.05"
+            <a-entity gltf-model="scene.gltf" animation-mixer></a-entity>            ></a-entity>
         </a-marker>
         <a-entity camera></a-entity>
         </a-scene>
