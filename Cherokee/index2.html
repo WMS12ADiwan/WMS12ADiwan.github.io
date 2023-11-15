@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cellular Adventure</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            text-align: center;
+            margin: 50px;
+        }
+
+        #game-container {
+            width: 400px;
+            margin: 0 auto;
+        }
+
+        #output {
+            text-align: left;
+            border: 1px solid #ccc;
+            padding: 10px;
+            min-height: 100px;
+        }
+
+
+        #stages {
+            position: absolute;
+            background-color: #ddd;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 10px;
+        }
+
+        .stage {
+            display: inline-block;
+            width: 10%;
+            height: 60%;
+            font-weight: bold;
+            position: relative;
+        }
+
+        #car {
+            bottom: 5%;
+            font-size: 400%;
+            transform: scaleX(-1);
+            position: absolute;
+            left: 20%;
+            transition: left 0.5s ease; /* Smooth transition for the car movement */
+        }
+
+        /* Styles for each stage */
+        #stage1 { background-color: #3498db;left: 1% }
+        #stage2 { background-color: #2ecc71; left: 1%}
+        #stage3 { background-color: #e74c3c; left: 1%}
+        #stage4 { background-color: #f39c12; left: 1%}
+        #stage5 { background-color: #9b59b6; left: 1%}
+        #stage6 { background-color: #34495e; left: 1%}
+    </style>
+</head>
+<body>
+
+<div id="game-container">
+    <h1>Cellular Adventure</h1>
+    <div id="output">Welcome to the Cellular World! Your journey begins at the entrance of glycolysis.</div>
+    <div id="road"></div>
+    <div id="stages">
+        <div id="stage1" class="stage">1</div>
+        <div id="stage2" class="stage">2</div>
+        <div id="stage3" class="stage">3</div>
+        <div id="stage4" class="stage">4</div>
+        <div id="stage5" class="stage">5</div>
+        <div id="stage6" class="stage">6</div>
+    </div>
+    <div id="car">🚶</div>
+    <button onclick="chooseNextStage()">Next Stage</button>
+</div>
+
+<script>
+    let currentStage = 0;
+
+    function chooseNextStage() {
+        if (currentStage < 6) { // Adjust the condition based on the number of stages
+            currentStage++;
+            updateGame();
+        } else {
+            document.getElementById("output").innerHTML = "<p>Congratulations! You have completed the journey.</p>";
+        }
+    }
+
+    function updateGame() {
+        const car = document.getElementById("car");
+
+        // Update the car position on the road
+        car.style.left = (currentStage * 10 + 10) + "%"; // Adjust the position based on the number of stages
+
+        // Optional: Highlight the current stage on the road
+        const stages = document.getElementsByClassName("stage");
+        for (let i = 0; i < stages.length; i++) {
+            stages[i].style.backgroundColor = (i === currentStage) ? "#f00" : "#aaa";
+        }
+    }
+</script>
+
+</body>
+</html>

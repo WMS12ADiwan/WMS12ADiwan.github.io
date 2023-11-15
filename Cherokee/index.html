@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hangman Game</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      margin: 50px;
+    }
+    #word-display {
+      font-size: 24px;
+      margin-bottom: 20px;
+    }
+    #letters-guessed {
+      margin-top: 20px;
+    }
+    #emoji {
+      font-size: 48px;
+    }
+    #message {
+      margin-top: 20px;
+    }
+    #retry-button, #clue-button {
+      padding: 10px 20px;
+      font-size: 16px;
+      cursor: pointer;
+      display: none;
+      margin-top: 20px;
+      margin: auto;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Hangman Game</h1>
+  
+  <div id="emoji">😊</div>
+  <div id="word-display"></div>
+  <div id="letters-guessed"></div>
+  <div id="message"></div>
+  <button id="retry-button" onclick="resetGame()">Retry</button>
+  <button id="clue-button" onclick="giveClue()" disabled>Clue</button>
+  
+  <script>
+    // List of words to choose from
+    const words = ["hangman", "javascript", "programming", "developer", "coding"];
+
+    // Select a random word from the list
+    let selectedWord = words[Math.floor(Math.random() * words.length)];
+
+    // Array to store correctly guessed letters
+    let correctGuesses = new Array(selectedWord.length).fill('_');
+
+    // Array to store incorrectly guessed letters
+    let incorrectGuesses = [];
+
+    // Emoji element
+    const emojiElement = document.getElementById('emoji');
+
+    // Message element
+    const messageElement = document.getElementById('message');
+
+    // Retry button
+    const retryButton = document.getElementById('retry-button');
+
+    // Clue button
+    const clueButton = document.getElementById('clue-button');
+
+    // Clue limit
+    let clueLimit = 3;
+
+    // Display the initial state of the word
+    updateWordDisplay();
+
+    // Function to update the word display
+    function updateWordDisplay() {
+      document.getElementById('word-display').innerHTML = correctGuesses.join(' ');
+      document.getElementById('letters-guessed').innerHTML = `Incorrect Guesses: ${incorrectGuesses.join(', ')}`;
+    }
+
+    // Event listener for key presses
+    document.addEventListener('keypress', function(event) {
+      // Check if the pressed key is a letter
+      if (event.keyCode >= 97 && event.keyCode <= 122) {
+        let guessedLetter = String.fromCharCode(event.keyCode);
+
+        // Check if the guessed letter is in the word
+        if (selectedWord.includes(guessedLetter)) {
+          // Update correctGuesses array with the correct guesses
+          for (let i = 0; i < selectedWord.length; i++) {
+            if (selectedWord[i] === guessedLetter) {
+              correctGuesses[i] = guessedLetter;
+            }
+          }
+        } else {
+          // Add incorrect guesses to the incorrectGuesses array
+          incorrectGuesses.push(guessedLetter);
+
+          // Update emoji based on incorrect guesses
+          updateEmoji();
+        }
+
+        // Check if the player has guessed all the letters
+        if (!correctGuesses.includes('_')) {
+          displayMessage('Congratulations! You guessed the word!', '😄');
+        }
+
+        // Check if the player has used all their chances
+        if (incorrectGuesses.length >= 6) {
+          displayMessage(`Sorry, you ran out of chances. The word was "${selectedWord}"`, '💀');
+        }
+
+        // Show the clue button after one mistake
+        if (incorrectGuesses.length === 1 && clueLimit > 0) {
+          clueButton.style.display = 'block';
+        }
+
+        // Update the display
+        updateWordDisplay();
+      }
+    });
+
+    // Function to update the emoji based on incorrect guesses
+    function updateEmoji() {
+      if (incorrectGuesses.length === 1) {
+        emojiElement.innerHTML = '😐';
+      } else if (incorrectGuesses.length === 2) {
+        emojiElement.innerHTML = '😕';
+      } else if (incorrectGuesses.length === 3) {
+        emojiElement.innerHTML = '😟';
+      } else if (incorrectGuesses.length === 4) {
+        emojiElement.innerHTML = '😢';
+      } else if (incorrectGuesses.length === 5) {
+        emojiElement.innerHTML = '😷';
+      } else if (incorrectGuesses.length === 6) {
+        emojiElement.innerHTML = '💀';
+        displayMessage(`Sorry, you ran out of chances. The word was "${selectedWord}"`, '💀');
+      }
+    }
+
+    // Function to display a message and update the emoji
+    function displayMessage(msg, emoji) {
+      messageElement.innerHTML = msg;
+      emojiElement.innerHTML = emoji;
+      retryButton.style.display = 'block';
+      clueButton.style.display = 'none'; // Hide the clue button when the game ends
+    }
+
+    // Function to give a clue
+    function giveClue() {
+      // Find the first unrevealed letter in the word and reveal it
+      for (let i = 0; i < selectedWord.length; i++) {
+        if (correctGuesses[i] === '_' && clueLimit > 0) {
+          correctGuesses[i] = selectedWord[i];
+          clueLimit--;
+          break;
+        }
+      }
+
+      // Update the display
+      updateWordDisplay();
+
+      // Disable the clue button if the clue limit is reached
+      if (clueLimit === 0) {
+        clueButton.disabled = true;
+      }
+    }
+
+    // Function to reset the game
+    function resetGame() {
+      selectedWord = words[Math.floor(Math.random() * words.length)];
+      correctGuesses = new Array(selectedWord.length).fill('_');
+      incorrectGuesses = [];
+      emojiElement.innerHTML = '😊';
+      messageElement.innerHTML = '';
+      retryButton.style.display = 'none';
+      clueButton.style.display = 'none';
+      clueButton.disabled = false; // Re-enable the clue button
+      clueLimit = 3; // Reset the clue limit
+      updateWordDisplay();
+    }
+  </script>
+
+</body>
+</html>
