@@ -1,0 +1,150 @@
+/* Global styling for the entire page */
+body {
+    margin: 0; /* Sets margin to zero */
+    padding: 0; /* Sets padding to zero */
+    height: 100vh; /* Sets height to 100% of viewport height */
+    overflow: hidden; /* Hides overflow content */
+    background: black; /* Initial background color */
+    transition: background 1s ease-in-out; /* Smooth transition for background color change */
+    display: flex; /* Uses flexbox for layout */
+    justify-content: center; /* Centers content horizontally */
+    align-items: center; /* Centers content vertically */
+    position: relative; /* Positioning relative to the viewport */
+    color: #fff; /* Text color */
+    font-family: 'Arial', sans-serif; /* Font family */
+    text-align: center; /* Centers text within the body */
+}
+
+/* Styling for the exchangeBox section */
+#exchangeBox {
+    position: relative; /* Relative positioning */
+    z-index: 1; /* Sets z-index to 1 for stacking order */
+    margin-top: 20px; /* Adds top margin */
+    border-radius: 10px; /* Adds border radius for rounded corners */
+    overflow: hidden; /* Hides overflow content */
+    display: block; /* Displays as a block element */
+}
+
+/* Pseudo-element before the exchangeBox for a translucent overlay */
+#exchangeBox::before {
+    content: ''; /* Empty content for pseudo-element */
+    position: absolute; /* Absolute positioning */
+    top: 0; /* Sets top position to 0 */
+    left: 0; /* Sets left position to 0 */
+    width: 100%; /* Sets width to 100% */
+    height: 100%; /* Sets height to 100% */
+    background: rgba(0, 0, 0, 0.5); /* Semi-transparent black background */
+    z-index: -1; /* Sets z-index to -1 for positioning behind #exchangeBox */
+    border-radius: 10px; /* Adds border radius for rounded corners */
+}
+
+/* Styling for the startButton */
+#startButton {
+    padding: 15px 30px; /* Sets padding for button */
+    font-size: 18px; /* Sets font size for button */
+    background-color: #3498db; /* Background color for button */
+    color: #fff; /* Text color for button */
+    border: none; /* Removes button border */
+    cursor: pointer; /* Adds pointer cursor on hover */
+    outline: none; /* Removes outline on focus */
+    transition: background-color 0.3s ease-in-out; /* Smooth transition for background color change */
+    z-index: 1; /* Sets z-index to 1 for stacking order */
+    margin-top: 20px; /* Adds top margin */
+    border-radius: 10px; /* Adds border radius for rounded corners */
+}
+
+/* Styling for backgroundContainer */
+#backgroundContainer {
+    position: absolute; /* Absolute positioning */
+    width: 100%; /* Sets width to 100% */
+    height: 100%; /* Sets height to 100% */
+    display: flex; /* Uses flexbox for layout */
+    justify-content: center; /* Centers content horizontally */
+    align-items: center; /* Centers content vertically */
+    z-index: 0; /* Sets z-index to 0 for positioning behind other elements */
+}
+
+/* Styling for backgroundImage */
+#backgroundImage {
+    max-width: 100%; /* Sets maximum width to 100% */
+    max-height: 100%; /* Sets maximum height to 100% */
+    opacity: 1; /* Initial opacity */
+    transition: opacity 1s ease-in-out; /* Smooth transition for opacity change */
+    z-index: 1; /* Sets z-index to 1 for stacking order */
+}
+
+/* Styling for secondBackground */
+#secondBackground {
+    position: fixed; /* Fixed positioning */
+    top: 0; /* Sets top position to 0 */
+    left: 0; /* Sets left position to 0 */
+    width: 100vw; /* Sets width to 100% of viewport width */
+    height: 100vh; /* Sets height to 100% of viewport height */
+    background: url('imges/world.jpg') center/cover no-repeat; /* Background image properties */
+    opacity: 0; /* Initial opacity */
+    transition: opacity 1s ease-in-out; /* Smooth transition for opacity change */
+    z-index: 0; /* Sets z-index to 0 for positioning behind other elements */
+}
+
+/* Styling for the game-container section */
+#game-container {
+    width: 400px; /* Sets width to 400 pixels */
+    margin: 0 auto; /* Centers the container horizontally */
+    z-index: 0; /* Sets z-index to 0 for positioning behind other elements */
+    display: none; /* Initially hides the game container */
+}
+
+/* Styling for the output section */
+#output {
+    text-align: center; /* Centers text within the output section */
+    border: 1px solid #ccc; /* Adds border with color #ccc */
+    padding: 10px; /* Adds padding to the output section */
+    min-height: 100px; /* Sets minimum height to 100 pixels */
+    position: relative; /* Positioning relative to the container */
+    z-index: 1; /* Sets z-index to 1 for stacking order */
+    border-radius: 10px; /* Adds border radius for rounded corners */
+    margin-top: 20px; /* Adds top margin */
+    overflow: hidden; /* Hides overflow content */
+}
+
+/* Styling for the stages section */
+#stages {
+    position: absolute; /* Absolute positioning */
+    background-color: #ddd; /* Background color for stages section */
+    bottom: 0; /* Sets bottom position to 0 */
+    left: 0; /* Sets left position to 0 */
+    right: 0; /* Sets right position to 0 */
+    padding: 10px; /* Adds padding to the stages section */
+    z-index: 1; /* Sets z-index to 1 for stacking order */
+    border-radius: 10px; /* Adds border radius for rounded corners */
+    overflow: hidden; /* Hides overflow content */
+}
+
+/* Styling for individual stage elements */
+.stage {
+    display: inline-block; /* Displays as an inline block element */
+    width: 10%; /* Sets width to 10% */
+    height: 60%; /* Sets height to 60% */
+    font-weight: bold; /* Sets font weight to bold */
+    position: relative; /* Relative positioning */
+    border-radius: 5px; /* Adds border radius for rounded corners */
+    overflow: hidden; /* Hides overflow content */
+}
+
+/* Styling for the car element */
+#car {
+    bottom: 5%; /* Sets bottom position to 5% */
+    font-size: 100%; /* Sets font size to 100% */
+    transform: scaleX(-1); /* Flips the element horizontally */
+    position: absolute; /* Absolute positioning */
+    left: 20%; /* Sets left position to 20% */
+    transition: left 0.5s ease; /* Smooth transition for the car movement */
+}
+
+/* Styles for each stage */
+#stage1 { background-color: #3498db;left: 1% } /* Styling for stage 1 */
+#stage2 { background-color: #2ecc71; left: 1%} /* Styling for stage 2 */
+#stage3 { background-color: #e74c3c; left: 1%} /* Styling for stage 3 */
+#stage4 { background-color: #f39c12; left: 1%} /* Styling for stage 4 */
+#stage5 { background-color: #9b59b6; left: 1%} /* Styling for stage 5 */
+#stage6 { background-color: #34495e; left: 1%} /* Styling for stage 6 */
