@@ -53,6 +53,9 @@ body {
     margin-top: 20px; /* Adds top margin */
     border-radius: 10px; /* Adds border radius for rounded corners */
 }
+#startButton:hover {    
+    opacity: 1;
+}
 
 /* Styling for backgroundContainer */
 #backgroundContainer {
