@@ -40,6 +40,7 @@ body {
 
 /* Styling for the startButton */
 #startButton {
+    opacity: 0.5;
     padding: 15px 30px; /* Sets padding for button */
     font-size: 18px; /* Sets font size for button */
     background-color: #0C2D48; /* Background color for button */
